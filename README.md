@@ -18,7 +18,7 @@ The project is structured around a workflow that integrates user input with a la
 
 ## Graph for Workflow
 
-[![alt text](stategraph_output.png)]
+[![alt text](stategraph.png)]
 
 ## How to Run
 
