@@ -1,0 +1,8 @@
+credentials.json
+token.json
+.env
+quickstart.py
+stategraph_output.png
+test_gmailAPI.py
+Todo.md
+/src/__pycache__

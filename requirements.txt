@@ -1,0 +1,9 @@
+langchain
+langchain_community 
+langchain-groq 
+langgraph 
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2
+python-dotenv
+colorama
