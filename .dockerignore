@@ -1,0 +1,22 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+
+# Ignore local configuration files
+*.env
+*.local
+
+# Ignore version control directories
+.git/
+.gitignore
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.temp

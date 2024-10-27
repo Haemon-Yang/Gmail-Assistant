@@ -3,8 +3,6 @@ from langchain_openai import ChatOpenAI
 from src.graph import Workflow
 from colorama import Fore, Style
 from pprint import pprint
-from IPython.display import display, Image
-from langchain_core.runnables.graph import MermaidDrawMethod
 from datetime import datetime
 
 # Load all env variables

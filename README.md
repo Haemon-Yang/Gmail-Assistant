@@ -13,13 +13,12 @@ This project aims to enhance the efficiency of Gmail usage by utilizing LangGrap
 
 The project is structured around a workflow that integrates user input with a language model to provide responses. The main components include:
 
-- **LangChain**: For managing the workflow.
+- **LangGraph**: For building agent workflow.
 - **OpenAI GPT-4**: For generating responses based on user input.
-- **Colorama**: For colored terminal output.
 
 ## Graph for Workflow
 
-[![alt text](stategraph.png)]
+![alt text](stategraph.png)
 
 ## How to Run
 
@@ -42,7 +41,7 @@ The project is structured around a workflow that integrates user input with a la
 2. Navigate to the project directory:
 
    ```bash
-   cd yourproject
+   cd Gmail-Assistant
    ```
 
 3. Install the required dependencies:
@@ -65,8 +64,32 @@ Follow [this guide](https://developers.google.com/gmail/api/quickstart/python) t
 
 Make sure it generates a `credentials.json` file.
 
-5. Run the application:
+5.Run the application:
 
    ```bash
    python main.py
    ```
+
+## Running Gmail-Assistant with Docker
+
+To build and run the project using Docker, follow these steps:
+
+1.Build Docker Image
+
+```bash
+docker build -t gmail-assistant .
+```
+
+2.Run Docker Container
+
+```bash
+docker run -it --env-file .env -p 5000:5000 gmail-assistant
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
+
+## License
+
+This project is licensed under the MIT License.
