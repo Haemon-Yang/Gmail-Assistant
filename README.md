@@ -2,11 +2,11 @@
 
 ## Description
 
-This project aims to enhance the efficiency of Gmail usage by utilizing LangGraph to create an intelligent agent that assists users with their daily inquiries related to Gmail. The agent can analyze user requirement, transform them into Gmail search syntax and retrieve relevant emails based on specified criteria.
+This project aims to enhance the efficiency of Gmail usage by utilizing LangGraph to create an intelligent agent that assists users with their daily inquiries related to Gmail. The agent can analyze user requirements, transform them into Gmail search syntax, and retrieve relevant emails based on specified criteria.
 
 ## Features
 
-- The agent can determine if a user’s request is related to Gmail and provide appropriate responses or suggestions.
+- The agent can determine if a user's request is related to Gmail and provide appropriate responses or suggestions.
 - It can filter Gmail inboxes based on various parameters such as sender, recipient, subject, body content, attachments, and date ranges.
 
 ## Architecture
@@ -16,13 +16,21 @@ The project is structured around a workflow that integrates user input with a la
 - **LangGraph**: For building agent workflow.
 - **OpenAI GPT-4**: For generating responses based on user input.
 
-## Graph for Workflow
+## System Overview
 
-![alt text](stategraph.png)
+![System Architecture](stategraph.png)
+
+### Agent Workflow
+
+The agent follows this basic workflow:
+1. **Input Analysis**: Analyzing user queries to determine intent
+2. **Query Formation**: Converting natural language into Gmail search syntax
+3. **Email Retrieval**: Fetching relevant emails from Gmail
+4. **Response Generation**: Providing useful information back to the user
 
 ## How to Run
 
-### Prerequest
+### Prerequisites
 
 - Python 3.10 or later
 - OpenAI API key
@@ -52,19 +60,27 @@ The project is structured around a workflow that integrates user input with a la
 
 4. Set up your environment variables by creating a `.env` file and adding the necessary keys.
 
-```env
-OPENAI_API_KEY = your_openai_api_key
-LANGCHAIN_API_KEY = your_langchain_api_key
-TAVILY_API_KEY = your_tavily_api_key
-```
+   ```env
+   OPENAI_API_KEY = your_openai_api_key
+   LANGCHAIN_API_KEY = your_langchain_api_key
+   TAVILY_API_KEY = your_tavily_api_key
+   ```
 
-4.1 Ensure Gmail API credentials are set up.
+5. Set up Gmail API credentials:
 
-Follow [this guide](https://developers.google.com/gmail/api/quickstart/python) to set up Gmail API credentials.
+   Follow [this guide](https://developers.google.com/gmail/api/quickstart/python) to set up Gmail API credentials.
 
-Make sure it generates a `credentials.json` file.
+   **Important Note About Credentials:**
+   - You need to generate a `credentials.json` file from the Google Cloud Console.
+   - When you first run the application, it will use these credentials to generate a `token.json` file.
+   - The `token.json` file contains OAuth 2.0 access tokens that expire periodically (typically after 1 hour).
+   - Refresh tokens in `token.json` may also expire if:
+     - The user revokes access
+     - The tokens haven't been used for an extended period
+     - You've reached Google's security limits
+   - If authentication fails, you may need to delete the `token.json` file and re-authenticate.
 
-5.Run the application:
+6. Run the application:
 
    ```bash
    python main.py
@@ -74,17 +90,17 @@ Make sure it generates a `credentials.json` file.
 
 To build and run the project using Docker, follow these steps:
 
-1.Build Docker Image
+1. Build Docker Image:
 
-```bash
-docker build -t gmail-assistant .
-```
+   ```bash
+   docker build -t gmail-assistant .
+   ```
 
-2.Run Docker Container
+2. Run Docker Container:
 
-```bash
-docker run -it --env-file .env -p 5000:5000 gmail-assistant
-```
+   ```bash
+   docker run -it --name container_name --env-file .env -p 5000:5000 gmail-assistant
+   ```
 
 ## Contributing
 

@@ -18,7 +18,7 @@ app = workflow.app
 print(Fore.GREEN + "Starting workflow..." + Style.RESET_ALL)
 while True:
     user_input = input("Tell me what do you want to do:")
-    if user_input.lower() == "exit":
+    if user_input.strip().lower() == "exit":
         pprint(Fore.CYAN + f"Finished running!" + Style.RESET_ALL)
         break
     # Update state with the user input
